@@ -1,0 +1,26 @@
+# Dependencias
+node_modules/
+
+# Variables de entorno (todas)
+.env
+.env.*
+!.env.example
+backend/.env
+frontend/.env
+backend/.env.*
+frontend/.env.*
+
+# Next.js
+frontend/.next/
+frontend/out/
+frontend/next-env.d.ts
+
+# Prisma / build
+*.tsbuildinfo
+dist/
+
+# Sistema y editores
+.DS_Store
+.vscode/
+.idea/
+npm-debug.log*

@@ -1,0 +1,56 @@
+// Webnote - esquema de base de datos (PostgreSQL en Render)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  nombres   String
+  apellidos String
+  telefono  String
+  email     String   @unique
+  password  String // Hash (bcrypt), nunca texto plano
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  notebooks Notebook[]
+
+  @@map("users")
+}
+
+model Notebook {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  coverColor  String   @default("#658D6D") // Verde Pizarra por defecto
+  userId      String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user  User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  pages Page[]
+
+  @@index([userId])
+  @@map("notebooks")
+}
+
+model Page {
+  id          String   @id @default(cuid())
+  pageNumber  Int
+  title       String?
+  contentHtml String   @default("")
+  notebookId  String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  notebook Notebook @relation(fields: [notebookId], references: [id], onDelete: Cascade)
+
+  @@unique([notebookId, pageNumber])
+  @@map("pages")
+}

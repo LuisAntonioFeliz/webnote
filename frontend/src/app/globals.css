@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  /* Custom Webnote App Palette */
+  --color-chalk-bg: #F3F2EC;
+  --color-slate-green: #658D6D;
+  --color-ink-blue: #263746;
+  --color-graphite: #646762;
+  --color-pencil-gray: #858781;
+  --color-warm-card: #FAF9F5;
+  --color-warm-border: #E2DFD5;
+
+  /* Notebook Canvas Palette */
+  --notebook-paper: #FAF9F3;
+  --notebook-lines: #9CB9D8;
+  --notebook-margin: #C71585;
+
+  /* Typography */
+  --font-sf-pro-display: 'SF Pro Display', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-sf-pro-text: 'SF Pro Text', ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  /* Border Radius */
+  --radius-cards: 28px;
+  --radius-pills: 36px;
+  --radius-buttons: 9999px;
+
+  /* Borders */
+  --border-subtle: 1px solid #E2DFD5;
+}
+
+@layer base {
+  html {
+    background-color: var(--color-chalk-bg);
+  }
+
+  body {
+    background-color: var(--color-chalk-bg);
+    color: var(--color-graphite);
+    font-family: var(--font-sf-pro-text);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--color-ink-blue);
+    font-family: var(--font-sf-pro-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+}
