@@ -13,7 +13,7 @@
 * **ORM:** Prisma
 * **Autenticación:** NextAuth.js (Auth.js)
 * **Offline-First:** Dexie.js (IndexedDB) para almacenamiento local y sincronización de trazos/notas
-* **Infraestructura & Despliegue:** Vercel (Frontend) & Render (Base de datos PostgreSQL)
+* **Infraestructura & Despliegue:** Vercel (Frontend) & Neon (Base de datos PostgreSQL)
 
 ---
 
